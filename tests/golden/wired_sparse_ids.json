@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": 5.0,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 9,
+      "x": 50,
+      "y": 50,
+      "label": ""
+    },
+    {
+      "id": 5,
+      "x": 150,
+      "y": 50,
+      "label": "mid"
+    },
+    {
+      "id": 2,
+      "x": 250,
+      "y": 150,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 9,
+      "b": 5,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 5,
+      "b": 2,
+      "bandwidth": "100Kb",
+      "delay": "1s",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    }
+  ],
+  "flows": [
+    {
+      "src": 9,
+      "dst": 2,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1,
+      "stop": 4,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 2,
+      "dst": 9,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 0,
+      "stop": 5,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    }
+  ],
+  "movements": []
+}

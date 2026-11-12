@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ns2gen"
+version = "0.1.0"
+description = "Desktop scenario generator for the ns2 network simulator (draw a topology, get a TCL script)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: System :: Networking",
+]
+
+[project.scripts]
+ns2gen = "ns2gen.cli:main"
+
+[tool.setuptools]
+packages = ["ns2gen"]

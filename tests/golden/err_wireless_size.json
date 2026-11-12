@@ -1,0 +1,38 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wireless",
+    "stop_time": 5.0,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 0,
+    "height": -5,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 0,
+      "y": 0,
+      "label": ""
+    },
+    {
+      "id": 0,
+      "x": 0,
+      "y": 0,
+      "label": ""
+    }
+  ],
+  "links": [],
+  "flows": [],
+  "movements": []
+}

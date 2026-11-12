@@ -1,0 +1,112 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": 5.0,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 0,
+      "y": 0,
+      "label": ""
+    },
+    {
+      "id": 1,
+      "x": 100,
+      "y": 0,
+      "label": ""
+    },
+    {
+      "id": 2,
+      "x": 200,
+      "y": 0,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 0,
+      "b": 1,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": false,
+      "queue_limit": null
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    }
+  ],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 2,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 2,
+      "dst": 0,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 2,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 2,
+      "dst": 0,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    }
+  ],
+  "movements": []
+}

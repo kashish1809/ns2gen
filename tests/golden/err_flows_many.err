@@ -1,0 +1,13 @@
+Flow 0->0: source and destination are the same.
+Flow 0->7: unknown node.
+Flow 0->1: protocol must be TCP or UDP.
+Flow 0->1: unknown TCP variant 'TCP/Foo'.
+Flow 0->1: TCP flows carry FTP.
+Flow 0->1: window must be >= 1.
+Flow 0->1: UDP flows carry CBR.
+Flow 0->1: rate '1.5.5' invalid (e.g. 500k, 1m).
+Flow 0->1: packet size must be 1..65535.
+Flow 0->1: need 0 <= start < stop.
+Flow 0->1: rate '5x' invalid (e.g. 500k, 1m).
+Flow 0->1: packet size must be 1..65535.
+Flow 0->1: stops after simulation end (5s).

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=ns2gen
+GenericName=ns2 Scenario Generator
+Comment=Draw a network topology and generate an ns2 TCL script
+Exec=ns2gen
+Icon=ns2gen
+Terminal=false
+Categories=Education;Network;Development;

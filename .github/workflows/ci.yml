@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python3 -m pytest -q tests
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Golden files are committed; regenerate to make sure they are up to date.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tests/make_golden.py
+      - run: git diff --exit-code tests/golden
+      - run: cargo test --manifest-path rust/Cargo.toml
+
+  ns2:
+    # Runs generated scripts through real ns2 (Ubuntu package).
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ns2
+      - run: |
+          mkdir -p t/run
+          for f in wired_basic wired_all wired_sparse_ids wireless_basic wireless_all; do
+            python3 -m ns2gen tests/golden/$f.json --export t/$f.tcl
+          done
+          sed -i '/exec nam/d' t/*.tcl
+          cd t
+          for f in *.tcl; do
+            echo "== $f"
+            rm -f *.tr run/*.tr
+            ns $f > "$f.log" 2>&1 || { tail -20 "$f.log"; exit 1; }
+            if grep -Eq "invalid command|can't read|wrong # args|no-slot" "$f.log"; then
+              tail -20 "$f.log"; exit 1
+            fi
+          done

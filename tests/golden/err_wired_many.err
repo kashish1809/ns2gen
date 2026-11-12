@@ -1,0 +1,16 @@
+Duplicate node ids.
+Stop time must be > 0.
+Trace file name must use only letters, digits, . _ - /
+NAM file name must use only letters, digits, . _ - /
+Link 0-1: bandwidth 'fast' invalid (e.g. 1Mb, 500Kb).
+Link 0-1: delay '10' invalid (e.g. 10ms).
+Link 1-0: duplicate link.
+Link 0-0: link to itself.
+Link 0-9: unknown node.
+Link 1-2: bandwidth '1.Mb' invalid (e.g. 1Mb, 500Kb).
+Link 1-2: delay '5 ms' invalid (e.g. 10ms).
+Link 1-2: unknown queue 'Foo'.
+Link 1-2: queue limit must be >= 1.
+Link 1-2: duplicate link.
+Flow 0->2: stops after simulation end (-1s).
+Flow 2->0: stops after simulation end (-1s).

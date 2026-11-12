@@ -1,0 +1,130 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": -1,
+    "trace_file": "a b.tr",
+    "nam_file": "",
+    "run_nam": true,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 100,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 1,
+      "x": 300,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 2,
+      "x": 500,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 2,
+      "x": 1,
+      "y": 1,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 0,
+      "b": 1,
+      "bandwidth": "fast",
+      "delay": "10",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 0,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 9,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "bandwidth": "1.Mb",
+      "delay": "5 ms",
+      "queue": "Foo",
+      "duplex": true,
+      "queue_limit": 0
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "bandwidth": "1Gb",
+      "delay": "3us",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    }
+  ],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 2,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Reno",
+      "app": "FTP",
+      "start": 0.5,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": 30
+    },
+    {
+      "src": 2,
+      "dst": 0,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1.0,
+      "stop": 3.0,
+      "packet_size": 512,
+      "rate": "300k",
+      "window": null
+    }
+  ],
+  "movements": []
+}

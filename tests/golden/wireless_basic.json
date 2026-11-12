@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wireless",
+    "stop_time": 10,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 500,
+    "height": 500,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 50,
+      "y": 50,
+      "label": ""
+    },
+    {
+      "id": 1,
+      "x": 250,
+      "y": 250,
+      "label": ""
+    },
+    {
+      "id": 2,
+      "x": 450,
+      "y": 100,
+      "label": ""
+    }
+  ],
+  "links": [],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 2,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 9,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    }
+  ],
+  "movements": [
+    {
+      "node": 1,
+      "time": 3,
+      "x": 400,
+      "y": 400,
+      "speed": 8
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[package]
+name = "ns2gen-rs"
+version = "0.1.0"
+edition = "2021"
+description = "ns2 scenario generator core (Rust port of ns2gen): model, validation, TCL generation, CLI"
+license = "MIT"
+
+[lib]
+name = "ns2gen"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ns2gen-rs"
+path = "src/main.rs"
+
+# Deliberately no dependencies yet: builds offline. serde can replace json.rs later.
+[dependencies]

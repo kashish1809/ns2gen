@@ -1,0 +1,133 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": 5,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 1,
+      "y": 1,
+      "label": ""
+    },
+    {
+      "id": 1,
+      "x": 2,
+      "y": 2,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 0,
+      "b": 1,
+      "bandwidth": "1Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    }
+  ],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 0,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1.0,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 7,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1.0,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 1,
+      "proto": "ICMP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1.0,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 1,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Foo",
+      "app": "CBR",
+      "start": 1.0,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": 0
+    },
+    {
+      "src": 0,
+      "dst": 1,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1.0,
+      "stop": 4.0,
+      "packet_size": 0,
+      "rate": "1.5.5",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 1,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": -1,
+      "stop": -2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 1,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 99,
+      "packet_size": 70000,
+      "rate": "5x",
+      "window": null
+    }
+  ],
+  "movements": []
+}

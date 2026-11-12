@@ -1,0 +1,3 @@
+Flow 2->0: no link path between the nodes.
+Flow 0->2: TCP needs a return path for ACKs (a one-way link blocks it).
+Flow 2->0: no link path between the nodes.

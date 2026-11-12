@@ -1,0 +1,104 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wireless",
+    "stop_time": 33.33,
+    "trace_file": "w.tr",
+    "nam_file": "w.nam",
+    "run_nam": false,
+    "width": 1000.5,
+    "height": 750,
+    "routing": "DSDV",
+    "mac": "Mac/Simple",
+    "prop": "Propagation/FreeSpace",
+    "ifq": "Queue/DropTail",
+    "ifq_len": 100,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 12.345678,
+      "y": 99.5,
+      "label": "a"
+    },
+    {
+      "id": 1,
+      "x": 500,
+      "y": 375,
+      "label": ""
+    },
+    {
+      "id": 3,
+      "x": 1000.5,
+      "y": 750,
+      "label": ""
+    },
+    {
+      "id": 7,
+      "x": 0,
+      "y": 0,
+      "label": ""
+    }
+  ],
+  "links": [],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 3,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Sack1",
+      "app": "FTP",
+      "start": 1,
+      "stop": 30,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": 8
+    },
+    {
+      "src": 1,
+      "dst": 7,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 2,
+      "stop": 33,
+      "packet_size": 64,
+      "rate": "2m",
+      "window": null
+    }
+  ],
+  "movements": [
+    {
+      "node": 1,
+      "time": 20,
+      "x": 100,
+      "y": 100,
+      "speed": 2.5
+    },
+    {
+      "node": 0,
+      "time": 5.5,
+      "x": 900,
+      "y": 700,
+      "speed": 10
+    },
+    {
+      "node": 3,
+      "time": 5.5,
+      "x": 10,
+      "y": 10,
+      "speed": 0.5
+    },
+    {
+      "node": 1,
+      "time": 0,
+      "x": 1,
+      "y": 1,
+      "speed": 1
+    }
+  ]
+}

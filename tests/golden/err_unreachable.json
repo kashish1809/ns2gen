@@ -1,0 +1,118 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": 5.0,
+    "trace_file": "out.tr",
+    "nam_file": "out.nam",
+    "run_nam": true,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 100,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 1,
+      "x": 300,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 2,
+      "x": 500,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 3,
+      "x": 700,
+      "y": 300,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 0,
+      "b": 1,
+      "bandwidth": "2Mb",
+      "delay": "10ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "bandwidth": "1Mb",
+      "delay": "20ms",
+      "queue": "RED",
+      "duplex": true,
+      "queue_limit": 15
+    }
+  ],
+  "flows": [
+    {
+      "src": 0,
+      "dst": 2,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Reno",
+      "app": "FTP",
+      "start": 0.5,
+      "stop": 4.0,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": 30
+    },
+    {
+      "src": 2,
+      "dst": 0,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1.0,
+      "stop": 3.0,
+      "packet_size": 512,
+      "rate": "300k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 3,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 3,
+      "dst": 1,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 2,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    }
+  ],
+  "movements": []
+}

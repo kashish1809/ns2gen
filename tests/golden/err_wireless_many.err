@@ -1,0 +1,17 @@
+Node 0: position outside topology 100x100.
+Node 1: position outside topology 100x100.
+Unsupported option 'FOO'.
+Unsupported option 'x'.
+Unsupported option 'y'.
+Unsupported option 'z'.
+Unsupported option 'a'.
+Unsupported option 'p'.
+Unsupported option 'c'.
+Unsupported option 'l'.
+Interface queue length must be >= 1.
+Movement of node 9 at 1s: unknown node.
+Movement of node 0 at 11s: time outside simulation.
+Movement of node 0 at -1s: time outside simulation.
+Movement of node 0 at -1s: speed must be > 0.
+Movement of node 1 at 2s: speed must be > 0.
+Movement of node 1 at 2s: target outside topology.

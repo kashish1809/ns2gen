@@ -1,0 +1,286 @@
+{
+  "format": 1,
+  "settings": {
+    "mode": "wired",
+    "stop_time": 12.5,
+    "trace_file": "run/a_1.tr",
+    "nam_file": "run/a_1.nam",
+    "run_nam": false,
+    "width": 800.0,
+    "height": 600.0,
+    "routing": "AODV",
+    "mac": "Mac/802_11",
+    "prop": "Propagation/TwoRayGround",
+    "ifq": "Queue/DropTail/PriQueue",
+    "ifq_len": 50,
+    "antenna": "Antenna/OmniAntenna",
+    "phy": "Phy/WirelessPhy",
+    "channel": "Channel/WirelessChannel",
+    "ll": "LL"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "x": 500,
+      "y": 300,
+      "label": "hub"
+    },
+    {
+      "id": 1,
+      "x": 600,
+      "y": 300,
+      "label": "edge 1"
+    },
+    {
+      "id": 2,
+      "x": 600,
+      "y": 400,
+      "label": "edge 2"
+    },
+    {
+      "id": 3,
+      "x": 500,
+      "y": 400,
+      "label": ""
+    },
+    {
+      "id": 4,
+      "x": 400,
+      "y": 400,
+      "label": ""
+    },
+    {
+      "id": 5,
+      "x": 400,
+      "y": 300,
+      "label": ""
+    },
+    {
+      "id": 6,
+      "x": 400,
+      "y": 200,
+      "label": ""
+    },
+    {
+      "id": 7,
+      "x": 500,
+      "y": 200,
+      "label": ""
+    },
+    {
+      "id": 8,
+      "x": 600,
+      "y": 200,
+      "label": ""
+    }
+  ],
+  "links": [
+    {
+      "a": 0,
+      "b": 1,
+      "bandwidth": "1.5Mb",
+      "delay": "1.25ms",
+      "queue": "DropTail",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 2,
+      "bandwidth": "2.5Mb",
+      "delay": "2.25ms",
+      "queue": "RED",
+      "duplex": false,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 3,
+      "bandwidth": "3.5Mb",
+      "delay": "3.25ms",
+      "queue": "FQ",
+      "duplex": true,
+      "queue_limit": 30
+    },
+    {
+      "a": 0,
+      "b": 4,
+      "bandwidth": "4.5Mb",
+      "delay": "4.25ms",
+      "queue": "SFQ",
+      "duplex": false,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 5,
+      "bandwidth": "5.5Mb",
+      "delay": "5.25ms",
+      "queue": "DRR",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 6,
+      "bandwidth": "6.5Mb",
+      "delay": "6.25ms",
+      "queue": "DropTail",
+      "duplex": false,
+      "queue_limit": 60
+    },
+    {
+      "a": 0,
+      "b": 7,
+      "bandwidth": "7.5Mb",
+      "delay": "7.25ms",
+      "queue": "RED",
+      "duplex": true,
+      "queue_limit": null
+    },
+    {
+      "a": 0,
+      "b": 8,
+      "bandwidth": "8.5Mb",
+      "delay": "8.25ms",
+      "queue": "FQ",
+      "duplex": false,
+      "queue_limit": null
+    }
+  ],
+  "flows": [
+    {
+      "src": 1,
+      "dst": 5,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Reno",
+      "app": "FTP",
+      "start": 0.25,
+      "stop": 3.333333,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": 20
+    },
+    {
+      "src": 3,
+      "dst": 7,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Newreno",
+      "app": "FTP",
+      "start": 0.5,
+      "stop": 4,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 5,
+      "dst": 3,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Vegas",
+      "app": "FTP",
+      "start": 1,
+      "stop": 5,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 7,
+      "dst": 1,
+      "proto": "TCP",
+      "tcp_variant": "TCP/Sack1",
+      "app": "FTP",
+      "start": 1,
+      "stop": 6,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 5,
+      "dst": 1,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 1,
+      "stop": 12,
+      "packet_size": 210,
+      "rate": "1.5m",
+      "window": null
+    },
+    {
+      "src": 1,
+      "dst": 2,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 2,
+      "stop": 10,
+      "packet_size": 1000,
+      "rate": "64k",
+      "window": null
+    },
+    {
+      "src": 1,
+      "dst": 5,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 7,
+      "stop": 8,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 1,
+      "dst": 5,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 7,
+      "stop": 8,
+      "packet_size": 1000,
+      "rate": "10",
+      "window": null
+    },
+    {
+      "src": 3,
+      "dst": 7,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 9,
+      "stop": 10,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 3,
+      "dst": 7,
+      "proto": "TCP",
+      "tcp_variant": "TCP",
+      "app": "FTP",
+      "start": 9,
+      "stop": 10,
+      "packet_size": 1000,
+      "rate": "500k",
+      "window": null
+    },
+    {
+      "src": 0,
+      "dst": 4,
+      "proto": "UDP",
+      "tcp_variant": "TCP",
+      "app": "CBR",
+      "start": 9,
+      "stop": 10,
+      "packet_size": 1000,
+      "rate": "200k",
+      "window": null
+    }
+  ],
+  "movements": []
+}
